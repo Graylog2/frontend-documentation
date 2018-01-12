@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -e
 
 ORIGINAL_PATH=$PWD
 SERVER_PATH=/tmp/server
