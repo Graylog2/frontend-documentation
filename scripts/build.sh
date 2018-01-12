@@ -15,7 +15,7 @@ export PATH=$PWD/node:$PATH
 node ./node/yarn/dist/bin/yarn.js run docs:build
 
 cd $ORIGINAL_PATH
-git checkout -B gh-pages
+git checkout gh-pages
 cp -r $SERVER_PATH/graylog2-web-interface/docs/styleguide/* ./
 git add -A
 git commit -m "Update website"
