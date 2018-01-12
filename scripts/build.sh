@@ -19,9 +19,15 @@ cd $ORIGINAL_PATH
 git checkout gh-pages
 rm -r ./*
 cp -r $SERVER_PATH/graylog2-web-interface/docs/styleguide/* ./
-git add -A
-git commit -m "Update website to $SERVER_SHA"
-git push origin gh-pages
+
+NUMBER_CHANGES=$(git status -s | wc -l)
+if [[ $NUMBER_CHANGES -gt 0 ]]; then
+  git add -A
+  git commit -m "Update website to $SERVER_SHA"
+  git push origin gh-pages
+else
+  echo "No changes made, skipping commit"
+fi
 
 exit 0
 
