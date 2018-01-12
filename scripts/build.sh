@@ -2,9 +2,10 @@
 set -e
 
 ORIGINAL_PATH=$PWD
+SERVER_PATH=/tmp/server
 
-git clone git://github.com/Graylog2/graylog2-server.git /tmp/server
-cd /tmp/server
+git clone git://github.com/Graylog2/graylog2-server.git $SERVER_PATH
+cd $SERVER_PATH
 mvn -f graylog2-server/pom.xml clean frontend:install-node-and-yarn frontend:yarn
 
 cd graylog2-web-interface
@@ -15,7 +16,7 @@ node ./node/yarn/dist/bin/yarn.js run docs:build
 
 cd $ORIGINAL_PATH
 git checkout -B gh-pages
-cp -r /tmp/server/graylog2-web-interface/docs/styleguide/* ./
+cp -r $SERVER_PATH/graylog2-web-interface/docs/styleguide/* ./
 git add -A
 git commit -m "Update website"
 git push origin gh-pages
