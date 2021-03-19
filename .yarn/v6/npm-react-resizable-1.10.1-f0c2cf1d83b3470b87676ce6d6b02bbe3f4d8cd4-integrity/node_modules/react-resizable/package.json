@@ -1,0 +1,74 @@
+{
+  "name": "react-resizable",
+  "version": "1.10.1",
+  "description": "A component that is resizable with handles.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --ext .js,.jsx lib/ test/; flow",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bash build.sh",
+    "build-example": "webpack",
+    "dev": "webpack-dev-server --open --open-page=examples/1.html",
+    "watch": "webpack --progress --watch",
+    "prepare": "npm run build",
+    "validate": "yarn check",
+    "preversion": "npm run lint",
+    "version": "git add CHANGELOG.md",
+    "postversion": "git push && git push --tags",
+    "flow": "flow"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:STRML/react-resizable.git"
+  },
+  "keywords": [
+    "react",
+    "resize",
+    "resizable"
+  ],
+  "author": "Samuel Reed <samuel.trace.reed@gmail.com> (http://strml.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/STRML/react-resizable/issues"
+  },
+  "homepage": "https://github.com/STRML/react-resizable",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0",
+    "flow-bin": "^0.110.0",
+    "lodash": "^4.17.15",
+    "pre-commit": "^1.1.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  },
+  "dependencies": {
+    "prop-types": "15.x",
+    "react-draggable": "^4.0.3"
+  },
+  "peerDependencies": {
+    "react": "0.14.x || 15.x || 16.x",
+    "react-dom": "0.14.x || 15.x || 16.x"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "pre-commit": [
+    "lint",
+    "validate"
+  ]
+}

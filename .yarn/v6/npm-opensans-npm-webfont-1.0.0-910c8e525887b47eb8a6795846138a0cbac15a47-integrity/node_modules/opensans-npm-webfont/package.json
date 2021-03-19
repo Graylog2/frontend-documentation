@@ -1,0 +1,23 @@
+{
+  "name": "opensans-npm-webfont",
+  "version": "1.0.0",
+  "description": "OpenSans webfont package",
+  "main": "style.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaeum/opensans-npm-webfont.git"
+  },
+  "keywords": [
+    "opensans",
+    "webfont"
+  ],
+  "author": "Vaeum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vaeum/opensans-npm-webfont/issues"
+  },
+  "homepage": "https://github.com/vaeum/opensans-npm-webfont#readme"
+}

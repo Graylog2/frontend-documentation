@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans Light'),
+         local('OpenSans-Light'),
+         url('fonts/opensanslight.woff2') format('woff2'),
+         url('fonts/opensanslight.woff') format('woff'),
+         url('fonts/opensanslight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
