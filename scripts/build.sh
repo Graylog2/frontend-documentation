@@ -4,7 +4,7 @@ set -e
 ORIGINAL_PATH=$PWD
 SERVER_PATH=$(mktemp -d /tmp/server-XXXX)
 
-git clone git://github.com/Graylog2/graylog2-server.git $SERVER_PATH
+git clone https://github.com/Graylog2/graylog2-server.git $SERVER_PATH
 cd $SERVER_PATH
 SERVER_SHA=$(git rev-parse HEAD)
 mvn -f graylog2-server/pom.xml clean frontend:install-node-and-yarn frontend:yarn
