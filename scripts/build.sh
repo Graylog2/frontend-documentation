@@ -13,6 +13,7 @@ cd graylog2-web-interface
 
 # Ensure commands executed by yarn also use the right node version
 export PATH=$PWD/node:$PATH
+cd docs
 node ./node/yarn/dist/bin/yarn.js run docs:build
 
 cd $ORIGINAL_PATH
