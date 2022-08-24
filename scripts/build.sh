@@ -3,26 +3,30 @@ set -e
 
 ORIGINAL_PATH=$PWD
 SERVER_PATH=$(mktemp -d /tmp/server-XXXX)
+WEB_PATH="$SERVER_PATH/graylog2-web-interface"
 
-git clone https://github.com/Graylog2/graylog2-server.git $SERVER_PATH
-cd $SERVER_PATH
+git clone https://github.com/Graylog2/graylog2-server.git "$SERVER_PATH"
+cd "$SERVER_PATH"
 SERVER_SHA=$(git rev-parse HEAD)
 mvn -f graylog2-server/pom.xml clean frontend:install-node-and-yarn frontend:yarn
 
 cd graylog2-web-interface
 
 # Ensure commands executed by yarn also use the right node version
-export PATH=$PWD/node:$PATH
-yarn="node $PWD/node/yarn/dist/bin/yarn.js"
+export PATH="$WEB_PATH/node:$PATH"
+
+run_yarn() {
+	"$WEB_PATH/node/node" "$WEB_PATH/node/yarn/dist/bin/yarn.js" "$@"
+}
 
 cd docs
-"$yarn" install
-"$yarn" run docs:build
+run_yarn install
+run_yarn run docs:build
 
-cd $ORIGINAL_PATH
+cd "$ORIGINAL_PATH"
 git checkout gh-pages
 rm -r ./*
-cp -r $SERVER_PATH/graylog2-web-interface/docs/styleguide/* ./
+cp -r "$SERVER_PATH"/graylog2-web-interface/docs/styleguide/* ./
 
 NUMBER_CHANGES=$(git status -s | wc -l)
 if [[ $NUMBER_CHANGES -gt 0 ]]; then
