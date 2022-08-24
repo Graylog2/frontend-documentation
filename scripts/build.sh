@@ -13,11 +13,11 @@ cd graylog2-web-interface
 
 # Ensure commands executed by yarn also use the right node version
 export PATH=$PWD/node:$PATH
-alias yarn="node $PWD/node/yarn/dist/bin/yarn.js"
+yarn="node $PWD/node/yarn/dist/bin/yarn.js"
 
 cd docs
-yarn install
-yarn run docs:build
+"$yarn" install
+"$yarn" run docs:build
 
 cd $ORIGINAL_PATH
 git checkout gh-pages
