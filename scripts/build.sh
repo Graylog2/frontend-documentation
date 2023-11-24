@@ -27,6 +27,7 @@ cd "$ORIGINAL_PATH"
 git checkout gh-pages
 rm -r ./*
 cp -r "$SERVER_PATH"/graylog2-web-interface/docs/styleguide/* ./
+rm -rf .yarn
 
 NUMBER_CHANGES=$(git status -s | wc -l)
 if [[ $NUMBER_CHANGES -gt 0 ]]; then
