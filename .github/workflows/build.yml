@@ -35,6 +35,8 @@ jobs:
         run: |
           NUMBER_CHANGES=$(git status -s | wc -l)
           if [[ $NUMBER_CHANGES -gt 0 ]]; then
+            git config --global user.email "garybot2@graylog.com"
+            git config --global user.name "Gary Bot"
             git add -A
             git commit -m "Update website to $SERVER_SHA"
             git push origin gh-pages
