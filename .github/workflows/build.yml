@@ -32,7 +32,7 @@ jobs:
           yarn run docs:build
           cp -r styleguide/* $GITHUB_WORKSPACE/frontend-documentation
           SERVER_SHA=`git rev-parse HEAD`
-          echo "::set-output name=serverSha::${SERVER_SHA}"
+          echo "{serverSha}=${SERVER_SHA}" >> $GITHUB_OUTPUT
       - name: Commit Results
         working-directory: frontend-documentation
         run: |
