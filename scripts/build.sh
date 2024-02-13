@@ -8,7 +8,7 @@ WEB_PATH="$SERVER_PATH/graylog2-web-interface"
 git clone https://github.com/Graylog2/graylog2-server.git "$SERVER_PATH"
 cd "$SERVER_PATH"
 SERVER_SHA=$(git rev-parse HEAD)
-mvn -f graylog2-server/pom.xml clean frontend:install-node-and-yarn frontend:yarn
+./mvnw -f graylog2-server/pom.xml clean frontend:install-node-and-yarn frontend:yarn
 
 cd graylog2-web-interface
 
