@@ -329,4 +329,4 @@ object-assign
 
 //! moment.js locale configuration
 
-//! version : 0.5.45
+//! version : 0.5.46
